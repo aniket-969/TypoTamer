@@ -8,7 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        sw: 'firebase-messaging-sw-template.js' // Use the template file
+        sw: 'firebase-messaging-sw.js' // Use the template file
       }
     }
   } 
