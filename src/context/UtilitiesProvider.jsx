@@ -10,10 +10,10 @@ export const UtilitiesProvider = ({ children }) => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "serika dark");
     const [resetButton, setResetButton] = useState(localStorage.getItem("resetButton") || "Enter");
     const [fontSize, setFontSize] = useState(JSON.parse(localStorage.getItem("fontSize")) || {
-        size: "1.5rem",
-        lineheight: "2.25rem",
-        height: "115px",
-        scroll: 36
+        size: "1.875rem",
+        lineheight: "2.5rem",
+        height: "125px",
+        scroll: 40
     });
     const caret = useRef(0)
     const [isLoading, setIsLoading] = useState(false)
