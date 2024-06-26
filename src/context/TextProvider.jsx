@@ -20,13 +20,13 @@ export const TextProvider = ({ children }) => {
         count100: false,
         custom: 0
     })
-    const [caretPosition, setCaretPosition] = useState({ left: 0, top:0});
+    const [caretPosition, setCaretPosition] = useState({ left: 0, top: 0 });
     const [state, setState] = useState("start")
     const [visibility, setVisibility] = useState({
         leaderboard: false,
         settings: false,
         zen: false,
-        about:false,
+        about: false,
         custom: false,
         customWordsAndTime: false
     });
@@ -37,7 +37,7 @@ export const TextProvider = ({ children }) => {
 
         if (component === "home") {
             setVisibility((prev) => {
-                const newVisibility = { leaderboard: false, settings: false, zen: false, custom: false, customWordsAndTime: false,about:false };
+                const newVisibility = { leaderboard: false, settings: false, zen: false, custom: false, customWordsAndTime: false, about: false };
                 return {
                     ...newVisibility,
 
@@ -47,9 +47,9 @@ export const TextProvider = ({ children }) => {
         }
 
         else {
- 
+
             setVisibility((prev) => {
-                const newVisibility = { leaderboard: false, settings: false, zen: false, custom: false, customWordsAndTime: false,about:false };
+                const newVisibility = { leaderboard: false, settings: false, zen: false, custom: false, customWordsAndTime: false, about: false };
                 return {
                     ...newVisibility,
                     [component]: !prev[component],
@@ -57,12 +57,14 @@ export const TextProvider = ({ children }) => {
             });
             keyEnable.current = false
         }
-        
-    };
-const countRef = useRef(0)
-const [scrollFlag,setScrollFlag] = useState(false)
 
-    const value = { selectedOptions, setSelectedOptions, state, setState, keyEnable, visibility, toggleVisibility,setVisibility, typingProfile, setTypingProfile, typingelement, setTypingElement, caretPosition, setCaretPosition,customWords,setCustomWords,countRef,scrollFlag,setScrollFlag }
+    };
+    const [mobileInput,setMobileInput] = useState("")
+    const countRef = useRef(0)
+    
+    const [scrollFlag, setScrollFlag] = useState(false)
+
+    const value = { selectedOptions, setSelectedOptions, state, setState, keyEnable, visibility, toggleVisibility, setVisibility, typingProfile, setTypingProfile, typingelement, setTypingElement, caretPosition, setCaretPosition, customWords, setCustomWords, countRef, scrollFlag, setScrollFlag,mobileInput,setMobileInput }
     return (
         <TypeContext.Provider value={value}>
             {children}

@@ -24,13 +24,16 @@ export const isKeyboardCodeAllowed = (code) => {
     code === "Equal"
   );
 };
-
+function hasDoubleSpaces(text) {
+  return text.includes("  "); // Checks for two consecutive spaces
+}
 export const countErrors = (actual, expected) => {
   const expectedCharacters = expected.split("");
 
   return expectedCharacters.reduce((errors, expectedChar, i) => {
     const actualChar = actual[i];
     if (actualChar !== expectedChar) {
+      
       errors++;
     }
     return errors;

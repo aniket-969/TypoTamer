@@ -26,6 +26,7 @@ const useEngine = () => {
     countRef,
     keyEnable,
     setScrollFlag,
+    setMobileInput,
   } = useTypingContext();
   const { User, isAnonymous } = useUserContext();
 
@@ -135,6 +136,7 @@ const useEngine = () => {
     setWordsReached("");
     typingSpeed.current = 0;
     countRef.current = selectedOptions.custom - 50;
+    setMobileInput("");
   }, [clearTyped, updateTypingText]);
 
   const sumErrors = useCallback(() => {
@@ -196,7 +198,7 @@ const useEngine = () => {
         typingSpeed.current = wpm(totalTyped, countdownSeconds);
         sumErrors();
       }
-
+      setMobileInput("");
       setState("finish");
     }
   }, [timeLeft, state]);
@@ -216,11 +218,12 @@ const useEngine = () => {
           resetCountdown();
           clearTyped();
           countRef.current = selectedOptions.custom - 50;
+          setMobileInput("");
         }
       } else if (cleanedInput != "") {
         clearTyped();
         setState("finish");
-
+        setMobileInput("");
         typingSpeed.current = wpm(totalTyped, 3600 - timeLeft);
         sumErrors();
         resetCountdown();
@@ -236,6 +239,7 @@ const useEngine = () => {
           sumErrors();
           resetCountdown();
           clearTyped();
+          setMobileInput("");
         } else {
           updateTypingText();
           clearTyped();
@@ -259,6 +263,7 @@ const useEngine = () => {
     typingSpeed.current = 0;
     setCustomWords("");
     countRef.current = 5;
+    setMobileInput("");
   }, [selectedOptions, typingelement]);
 
   useEffect(() => {

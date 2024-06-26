@@ -14,11 +14,12 @@ import CustomUserInput from '../components/CustomUserInput';
 import { useUtilitiesContext } from '../context/UtilitiesProvider';
 import About from '../components/About';
 import { VscDebugRestart } from "react-icons/vsc";
+import MobileInput from '../components/MobileInput';
 
 const Home = () => {
   const { typingTexts, typed, timeLeft, errors, restart, totalTyped, state, typingSpeed, time } = useEngine();
-  const { visibility, setTypingProfile, setCaretPosition } = useTypingContext();
-  const { fontSize, resetButton, caret } = useUtilitiesContext()
+  const { visibility, setTypingProfile,mobileInput,setMobileInput } = useTypingContext();
+  const { fontSize, resetButton } = useUtilitiesContext()
   const scrollRef = useRef(null);
   const [showOptions, setShowOptions] = useState(false)
 
@@ -31,6 +32,10 @@ const Home = () => {
   useEffect(() => {
     restart()
   }, [visibility])
+
+const handleInput = (e)=>{
+   setMobileInput(e.target.value)
+}
 
   return (
 
@@ -50,6 +55,7 @@ const Home = () => {
             style={{ fontSize: fontSize.size, lineHeight: fontSize.lineheight, height: fontSize.height }}>
             <Typing userInput={typed} words={typingTexts} scrollRef={scrollRef} showOptions={showOptions} restart={restart} scroll={fontSize.scroll} />
           </div>
+          <MobileInput handleInput={handleInput} mobileInput={mobileInput}/>
           <VscDebugRestart className='text-[1.2rem] restart' onClick={() => restart()} />
           <Results
             state={state}

@@ -11,7 +11,6 @@ export const updateErrorRatios = async (
   if (isAnonymous) return;
 
 
-
   const userId = User.uid;
 
   const errorsCollection = collection(db, "Errors");
