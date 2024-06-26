@@ -26,6 +26,7 @@ const useEngine = () => {
     countRef,
     keyEnable,
     setScrollFlag,
+    mobileInput,
     setMobileInput,
   } = useTypingContext();
   const { User, isAnonymous } = useUserContext();

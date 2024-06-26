@@ -33,6 +33,14 @@ const Home = () => {
     restart()
   }, [visibility])
 
+useEffect(()=>{
+  if(state==="run" && mobileInput===""){
+    console.log('it is empty');
+    setMobileInput(typed)
+    console.log(typed)
+  }
+},[mobileInput])
+
 const handleInput = (e)=>{
    setMobileInput(e.target.value)
 }
