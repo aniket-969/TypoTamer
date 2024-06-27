@@ -51,7 +51,7 @@ const SignInSignUp = () => {
   return (
     <section className='max-h-[100vh] px-5 py-4 flex justify-center  mt-5 flex-col items-center gap-10 ' >
       <h1 className='text-3xl font-semibold'>TypoTamer</h1>
-      <div className='flex justify-center gap-[5rem] text-lg font-normal sm:flex-row flex-col'>
+      <div className='flex justify-center sm:gap-[5rem] gap-[2rem] text-lg font-normal sm:flex-row flex-col'>
 
         <section className='flex flex-col justify-center items-start gap-5 max-w-[250px] w-[90%] '>
           <h2>register</h2>
