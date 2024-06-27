@@ -27,7 +27,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='flex items-center justify-between text-[1em] w-[100%] sm:ml-5 mr-4 max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1280px] sm:p-0 pr-2 py-2'>
+        <nav className='flex items-center justify-between text-[1em] w-[100%] sm:ml-5 mr-4 max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1280px] sm:p-0 pr-2 py-2 '>
 
             <ul className='flex items-center justify-center gap-1 '>
                 <li className='mx-4  text-[1.12rem] sm:text-[1.8rem] text-main' onClick={() => {

@@ -712,3 +712,9 @@ li:hover,
 .restart:hover{
   color: var(--text-color);
 }
+
+.hidden-input{
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}

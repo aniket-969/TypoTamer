@@ -28,6 +28,7 @@ const useEngine = () => {
     setScrollFlag,
     mobileInput,
     setMobileInput,
+    mobileInputVisible,
   } = useTypingContext();
   const { User, isAnonymous } = useUserContext();
 
@@ -211,6 +212,7 @@ const useEngine = () => {
           updateTypingText(true);
           clearTyped();
           sumErrors();
+          setMobileInput("");
         } else {
           updateErrorRatios(wordsReached, storedErrors, User, isAnonymous);
           setState("finish");
@@ -232,6 +234,7 @@ const useEngine = () => {
       } else if (typingProfile) {
         updateTypingText();
         clearTyped();
+        setMobileInput("");
       } else {
         if (selectedOptions.words) {
           updateErrorRatios(wordsReached, storedErrors, User, isAnonymous);
@@ -244,6 +247,7 @@ const useEngine = () => {
         } else {
           updateTypingText();
           clearTyped();
+          setMobileInput("");
           sumErrors();
         }
       }
@@ -272,11 +276,13 @@ const useEngine = () => {
   }, [customWords, typingProfile]);
 
   useEffect(() => {
-    window.addEventListener("keydown", handleGlobalKeyDown);
+    if (!mobileInputVisible) {
+      window.addEventListener("keydown", handleGlobalKeyDown);
 
-    return () => {
-      window.removeEventListener("keydown", handleGlobalKeyDown);
-    };
+      return () => {
+        window.removeEventListener("keydown", handleGlobalKeyDown);
+      };
+    }
   }, [resetButton, handleGlobalKeyDown]);
 
   return {

@@ -12,7 +12,8 @@ const Results = ({
     accuracyPercentage,
     total,
     typingSpeed,
-    time
+    time,
+    mobileInputVisible
 }) => {
 
     const { updateUser, isAnonymous,User } = useUserContext();

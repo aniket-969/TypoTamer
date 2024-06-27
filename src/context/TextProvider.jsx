@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useRef } from "react";
+import MobileInput from './../components/MobileInput';
 
 const TypeContext = createContext()
 
@@ -60,11 +61,12 @@ export const TextProvider = ({ children }) => {
 
     };
     const [mobileInput,setMobileInput] = useState("")
+    const[mobileInputVisible,setMobileInputVisible] = useState(false)
     const countRef = useRef(0)
     
     const [scrollFlag, setScrollFlag] = useState(false)
 
-    const value = { selectedOptions, setSelectedOptions, state, setState, keyEnable, visibility, toggleVisibility, setVisibility, typingProfile, setTypingProfile, typingelement, setTypingElement, caretPosition, setCaretPosition, customWords, setCustomWords, countRef, scrollFlag, setScrollFlag,mobileInput,setMobileInput }
+    const value = { selectedOptions, setSelectedOptions, state, setState, keyEnable, visibility, toggleVisibility, setVisibility, typingProfile, setTypingProfile, typingelement, setTypingElement, caretPosition, setCaretPosition, customWords, setCustomWords, countRef, scrollFlag, setScrollFlag,mobileInput,setMobileInput,mobileInputVisible,setMobileInputVisible }
     return (
         <TypeContext.Provider value={value}>
             {children}

@@ -9,7 +9,7 @@ import { FaAt } from "react-icons/fa";
 import { FaFont } from "react-icons/fa";
 import MobileNavbar from "./MobileNavbar";
 
-const OptionSelector = ({ restart, showOptions, setShowOptions }) => {
+const OptionSelector = ({ restart, showOptions, setShowOptions,mobileInputVisible }) => {
     const { selectedOptions, setSelectedOptions, keyEnable, toggleVisibility, setCustomWords } = useTypingContext();
     
     const handleOptionClick = (option) => {
@@ -235,7 +235,7 @@ const OptionSelector = ({ restart, showOptions, setShowOptions }) => {
 
             </section>
 
-            <div className="sm:hidden w-[100%] flex items-center justify-center ">
+            <div className={`sm:hidden w-[100%] flex items-center justify-center ${mobileInputVisible?"hidden":""}`}>
                 <MobileNavbar handleCustomUserInput={handleCustomUserInput} handlePreference={handlePreference} handleOptionClick={handleOptionClick} getButtonStyle={getButtonStyle} restart={restart} showOptions={showOptions} setShowOptions={setShowOptions} />
             </div>
         </>

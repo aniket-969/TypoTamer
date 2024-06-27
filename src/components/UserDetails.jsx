@@ -11,7 +11,7 @@ import { FaCameraRetro } from "react-icons/fa";
 import { updateLeaderboardPhotoUrl } from '../services/firebase/LeaderboardData';
 import toast from 'react-hot-toast';
 
-const UserDetails = () => {
+const UserDetails = ({mobileInputVisible}) => {
     const { User, updateUser, setUser } = useUserContext();
     const [isEditing, setIsEditing] = useState(false);
     const [newName, setNewName] = useState(User.displayName);
@@ -101,8 +101,8 @@ const UserDetails = () => {
     };
 
     return (
-        <div className='flex flex-col justify-center items-center mt-5 mb-5 gap-5 '>
-            <div className='relative'>
+        <div className={`flex flex-col justify-center items-center mt-5 mb-5 gap-5  ${mobileInputVisible?"hidden":""}`}>
+            <div className='relative '>
                 {User.photoURL ? (
                     <figure>
                         <img src={User.photoURL} alt="profile image" className="rounded-full w-32 h-32" />

@@ -4,7 +4,12 @@ import { useTypingContext } from "../context/TextProvider";
 import { useUtilitiesContext } from "../context/UtilitiesProvider";
 
 const useTypings = (enabled) => {
-  const { keyEnable, mobileInput, setMobileInput } = useTypingContext();
+  const {
+    keyEnable,
+    mobileInput,
+    mobileInputVisible,
+    
+  } = useTypingContext();
   const { keySound, volume } = useUtilitiesContext();
   const [cursor, setCursor] = useState(0);
   const [typed, setTyped] = useState("");
@@ -24,10 +29,15 @@ const useTypings = (enabled) => {
     (e) => {
       const { key, code } = e;
 
-      if (!enabled || !isKeyboardCodeAllowed(code) || !keyEnable.current) {
+      if (
+        !enabled ||
+        !isKeyboardCodeAllowed(code) ||
+        !keyEnable.current ||
+        mobileInputVisible
+      ) {
         return;
       }
-
+      
       if (code === "Enter" || code === "Escape") {
         e.preventDefault();
         return;
@@ -50,7 +60,7 @@ const useTypings = (enabled) => {
           totalTyped.current += 1;
       }
     },
-    [enabled, keySound, volume]
+    [enabled, keySound, volume, mobileInputVisible]
   );
 
   const mobileInputHandler = useCallback(
@@ -58,6 +68,7 @@ const useTypings = (enabled) => {
       if (!enabled || !keyEnable.current) {
         return;
       }
+
       const lastCharacter = mobileInput.slice(-1);
       if (mobileInput.length <= prevInputLength.current) {
         setTyped((prev) => prev.slice(0, -1));
@@ -77,29 +88,33 @@ const useTypings = (enabled) => {
       }
       prevInputLength.current = mobileInput.length;
     },
-    [enabled, keySound, volume, mobileInput]
+    [enabled, keySound, volume, mobileInput,mobileInputVisible]
   );
 
   useEffect(() => {
-    mobileInputHandler(mobileInput);
-  }, [mobileInputHandler]);
+    if (mobileInputVisible) {
+      mobileInputHandler(mobileInput);
+    }
+  }, [mobileInputHandler, mobileInputVisible]);
 
   const clearTyped = useCallback(() => {
     setTyped("");
     setCursor(0);
   }, []);
-
+ 
   const resetTotalTyped = useCallback(() => {
     totalTyped.current = 0;
   }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener("keydown", keydownHandler);
+  useEffect(() => {
+    if (!mobileInputVisible) {
+      window.addEventListener("keydown", keydownHandler);
 
-  //   return () => {
-  //     window.removeEventListener("keydown", keydownHandler);
-  //   };
-  // }, [keydownHandler]);
+      return () => {
+        window.removeEventListener("keydown", keydownHandler);
+      };
+    }
+  }, [keydownHandler]);
 
   return {
     typed,
