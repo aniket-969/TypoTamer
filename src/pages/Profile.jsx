@@ -19,7 +19,7 @@ const Profile = () => {
   const [showProfile, setShowProfile] = useState(false)
   const { fontSize } = useUtilitiesContext()
   const navigate = useNavigate()
-
+const{state} = useEngine()
 
   const getUserErrorData = async () => {
     setIsLoading(true)
@@ -41,7 +41,13 @@ const Profile = () => {
 
   }, [])
 
-
+  useEffect(()=>{
+    if(state==="run" && mobileInput===""){
+      
+      setMobileInput(typed)
+      
+    }
+  },[mobileInput])
   const handleButtonClick = (element) => {
 
     setTypingElement(element)
