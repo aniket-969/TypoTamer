@@ -5,7 +5,7 @@ import { auth } from "../services/firebase/firebase"
 import toast from 'react-hot-toast'
 
 const AuthContext = createContext()
-const GUEST_SESSION_DURATION = 120000;
+const GUEST_SESSION_DURATION = 300000;
 export const AuthProvider = ({ children }) => {
     
     const [User, setUser] = useState("") 
@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
 
     const signUserOut = () => {
         if (timerRef.current) {
+          
             clearTimeout(timerRef.current); 
             timerRef.current = null
           } 

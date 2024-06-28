@@ -11,4 +11,4 @@ let {User} = useUserContext()
    )
 }
 
-export default ProtectedRoute;
+export default ProtectedRoute; 

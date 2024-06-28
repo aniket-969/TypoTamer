@@ -3,7 +3,7 @@ import { useUserContext } from '../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { useEffect } from 'react';
 
-const GUEST_SESSION_DURATION = 120000;
+const GUEST_SESSION_DURATION = 300000;
 
 const GuestLogin = () => {
   const navigate = useNavigate()
