@@ -15,7 +15,6 @@ import { useUtilitiesContext } from "../context/UtilitiesProvider";
 import About from "../components/About";
 import { VscDebugRestart } from "react-icons/vsc";
 import MobileInput from "../components/MobileInput";
-import { SiBuymeacoffee } from "react-icons/si";
 import DonateModal from "../components/DonateModal";
 
 const Home = () => {

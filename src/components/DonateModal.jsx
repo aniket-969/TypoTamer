@@ -17,7 +17,7 @@ const DonateModal = () => {
           backgroundColor: "var(--main-color)",
           color: "var(--bg-color)",
         }}
-        className="fixed bottom-6 right-6 font-semibold px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all"
+        className="fixed bottom-[15%] right-[30%] sm:bottom-6 sm:right-6 font-semibold px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all"
       >
         ☕ Buy me a coffee
       </button>
@@ -60,12 +60,17 @@ const DonateModal = () => {
             </button>
 
             {/* BuyMeACoffee button */}
-            <button
-              className="flex items-center justify-center gap-2 bg-[var(--caret-color)] hover:bg-[var(--error-color)] text-white py-2 w-full rounded-md font-semibold transition-all"
-            >
-              <SiBuymeacoffee size={20} />
-              Buy me a Coffee
-            </button>
+            {/* BuyMeACoffee link */}
+<a
+  href="https://buymeacoffee.com/aniket969"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center justify-center gap-2 bg-[var(--caret-color)] hover:bg-[var(--error-color)] text-white py-2 w-full rounded-md font-semibold transition-all"
+>
+  <SiBuymeacoffee size={20} />
+  Buy me a Coffee
+</a>
+
           </div>
         </div>
       )}
