@@ -15,6 +15,8 @@ import { useUtilitiesContext } from '../context/UtilitiesProvider';
 import About from '../components/About';
 import { VscDebugRestart } from "react-icons/vsc";
 import MobileInput from '../components/MobileInput';
+import { SiBuymeacoffee } from 'react-icons/si';
+import DonateModal from '../components/DonateModal';
 
 const Home = () => {
   const { typingTexts, typed, timeLeft, errors, restart, totalTyped, state, typingSpeed, time } = useEngine();
@@ -22,6 +24,7 @@ const Home = () => {
   const { fontSize, resetButton } = useUtilitiesContext()
   const scrollRef = useRef(null);
   const [showOptions, setShowOptions] = useState(false)
+  const[open,setOpen] = useState(false)
 
   useEffect(() => {
 
@@ -74,6 +77,8 @@ const handleInput = (e)=>{
             total={totalTyped}
 
           />
+{/* Buy me a coffee */}
+{state!=="finish"?<DonateModal/>:<></>}
 
           {resetButton != "off" && state !== "finish" ? <p className={`text-sub absolute bottom-5 ${mobileInputVisible?"hidden":""}`}> use <span className='bg-submain text-bg text-[0.8rem] px-[0.2rem]'>{resetButton}</span> to quick restart test</p> : <></>}
         </main>
