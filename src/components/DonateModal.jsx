@@ -17,7 +17,7 @@ const DonateModal = () => {
           backgroundColor: "var(--main-color)",
           color: "var(--bg-color)",
         }}
-        className="fixed bottom-[15%] right-[30%] sm:bottom-6 sm:right-6 font-semibold px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all"
+        className="fixed bottom-[15%] right-[30%] sm:bottom-6 sm:right-8 font-semibold px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all"
       >
         ☕ Buy me a coffee
       </button>
