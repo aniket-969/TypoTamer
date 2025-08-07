@@ -7,7 +7,7 @@ export const UtilitiesProvider = ({ children }) => {
     const [font, setFont] = useState(localStorage.getItem("font") || "Arial, sans-serif");
     const [keySound, setKeySound] = useState(localStorage.getItem("keySound") || keyboard);
     const [volume, setVolume] = useState(localStorage.getItem("volume") || 1);
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "serika dark");
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "blueberry dark");
     const [resetButton, setResetButton] = useState(localStorage.getItem("resetButton") || "Enter");
     const [fontSize, setFontSize] = useState(JSON.parse(localStorage.getItem("fontSize")) || {
         size: "1.875rem",

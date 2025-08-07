@@ -8,6 +8,7 @@ import { FaCog } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { FaKeyboard } from "react-icons/fa";
 import { FaInfo } from "react-icons/fa";
+import { SiBuymeacoffee } from "react-icons/si";
 
 const Navbar = () => {
 
@@ -68,6 +69,11 @@ const Navbar = () => {
                     <div className='icon'>
                         <FaCog className='w-[1.25em]' />
                     </div></li>
+                    {/* Buy me a coffee */}
+                {/* <li className='nav-icon' title='buymeacoffee' >
+                    <div className='icon'>
+                        <SiBuymeacoffee className='w-[1.25em]' />
+                    </div></li> */}
             </ul>
 
             <ul className='flex items-center justify-center  gap-2'>
